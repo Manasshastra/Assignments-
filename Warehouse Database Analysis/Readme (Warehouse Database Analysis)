@@ -1,0 +1,74 @@
+# Warehouse Management System Assignment
+
+This assignment focuses on working with a warehouse dataset and answering various questions related to warehouse operations using SQL queries.
+
+## Assignment Questions
+
+1. Select all warehouses.
+   - Write a query to retrieve information about all warehouses.
+
+2. Select all boxes with a value larger than $150.
+   - Write a query to find boxes with a value greater than $150.
+
+3. Select all distinct contents in all the boxes.
+   - Write a query to retrieve the unique contents present in all boxes.
+
+4. Select the average value of all the boxes.
+   - Write a query to calculate the average value of all boxes.
+
+5. Select the warehouse code and the average value of the boxes in each warehouse.
+   - Write a query to get the average value of boxes for each warehouse.
+
+6. Select only those warehouses where the average value of the boxes is greater than 150.
+   - Write a query to find warehouses with an average box value greater than 150.
+
+7. Select the code of each box, along with the name of the city the box is located in.
+   - Write a query to combine box codes with their corresponding city names.
+
+8. Select the warehouse codes, along with the number of boxes in each warehouse.
+   - Write a query to count the number of boxes in each warehouse.
+
+9. Optionally, take into account that some warehouses are empty.
+   - Write a query to show all warehouses, including those with zero boxes.
+
+10. Select the codes of all warehouses that are saturated.
+    - Write a query to find warehouses where the number of boxes exceeds the capacity.
+
+11. Select the codes of all the boxes located in Chicago.
+    - Write a query to retrieve box codes from boxes located in Chicago.
+
+12. Create a new warehouse in New York with a capacity for 3 boxes.
+    - Write an SQL statement to insert a new warehouse record.
+
+13. Create a new box with specific details.
+    - Write an SQL statement to insert a new box with specific attributes.
+
+14. Reduce the value of all boxes by 15%.
+    - Write an SQL statement to update box values by applying a reduction.
+
+15. Remove all boxes with a value lower than $100.
+    - Write an SQL statement to delete boxes with a value less than $100.
+
+16. Remove all boxes from saturated warehouses.
+    - Write an SQL statement to delete boxes from warehouses exceeding capacity.
+
+17. Add an Index for the "Warehouse" column in the "boxes" table.
+    - Write an SQL statement to create an index on the "Warehouse" column.
+
+18. Print all the existing indexes.
+    - Write an SQL query to display existing indexes on tables.
+
+19. Remove (drop) the index you added.
+    - Write an SQL statement to remove the previously added index.
+
+## Usage
+
+1. Clone the repository or download the dataset provided.
+2. Use your preferred SQL database management tool to execute the queries provided for each question.
+3. Observe the query results to answer the questions and validate the outcomes.
+
+## Note
+
+- The queries in this assignment are written as examples and should be adapted to your specific database schema and table names.
+- Some queries involve modifying the database. Use caution when executing queries that modify data.
+
