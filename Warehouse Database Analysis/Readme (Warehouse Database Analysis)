@@ -5,13 +5,13 @@ This assignment focuses on working with a warehouse dataset and answering variou
 ## Assignment Questions
 
 1. Select all warehouses.
-   - Write a query to retrieve information about all warehouses.
+   - Write a query to retrieve information about all warehouses. 
 
 2. Select all boxes with a value larger than $150.
-   - Write a query to find boxes with a value greater than $150.
+   - Write a query to find boxes with a value greater than $150. 
 
 3. Select all distinct contents in all the boxes.
-   - Write a query to retrieve the unique contents present in all boxes.
+   - Write a query to retrieve the unique contents present in all boxes.    
 
 4. Select the average value of all the boxes.
    - Write a query to calculate the average value of all boxes.
@@ -29,7 +29,7 @@ This assignment focuses on working with a warehouse dataset and answering variou
    - Write a query to count the number of boxes in each warehouse.
 
 9. Optionally, take into account that some warehouses are empty.
-   - Write a query to show all warehouses, including those with zero boxes.
+   - Write a query to show all warehouses, including those with zero boxes. In our data, there is no box with zeros so table would not have any zeros mentioned. 
 
 10. Select the codes of all warehouses that are saturated.
     - Write a query to find warehouses where the number of boxes exceeds the capacity.
@@ -41,7 +41,7 @@ This assignment focuses on working with a warehouse dataset and answering variou
     - Write an SQL statement to insert a new warehouse record.
 
 13. Create a new box with specific details.
-    - Write an SQL statement to insert a new box with specific attributes.
+    - Write an SQL statement to insert a new box with with code "H5RT", containing "Papers" with a value of $200,and located in warehouse 2.
 
 14. Reduce the value of all boxes by 15%.
     - Write an SQL statement to update box values by applying a reduction.
@@ -53,22 +53,12 @@ This assignment focuses on working with a warehouse dataset and answering variou
     - Write an SQL statement to delete boxes from warehouses exceeding capacity.
 
 17. Add an Index for the "Warehouse" column in the "boxes" table.
-    - Write an SQL statement to create an index on the "Warehouse" column.
+    - Write an SQL statement to create an index on the "Warehouse" column. In this the index was named indexwarehouse for the purpose of it. 
 
 18. Print all the existing indexes.
-    - Write an SQL query to display existing indexes on tables.
+    - Write an SQL query to display existing indexes on tables. The previous menntioned index should also show up in the existing indexes alongside others
+      as the index is added previous to raising this query. 
 
 19. Remove (drop) the index you added.
     - Write an SQL statement to remove the previously added index.
-
-## Usage
-
-1. Clone the repository or download the dataset provided.
-2. Use your preferred SQL database management tool to execute the queries provided for each question.
-3. Observe the query results to answer the questions and validate the outcomes.
-
-## Note
-
-- The queries in this assignment are written as examples and should be adapted to your specific database schema and table names.
-- Some queries involve modifying the database. Use caution when executing queries that modify data.
 
