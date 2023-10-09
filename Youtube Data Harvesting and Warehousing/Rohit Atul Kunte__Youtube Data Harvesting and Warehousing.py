@@ -80,7 +80,7 @@ create_comments_table_query = """
 mycursor.execute(create_comments_table_query)
 
 # BUILDING CONNECTION WITH YOUTUBE API
-api_key = "AIzaSyCBVuyvqJKgKE7GD3v1WNQ73MOZ1mkb2fs" 
+api_key = "AIzaSyBxRq82TyPSS6WnaU4CqzU2xp5v_FuLPvI" 
 youtube = build('youtube','v3',developerKey=api_key)
 
 # FUNCTION TO GET CHANNEL DETAILS
@@ -192,13 +192,7 @@ def channel_names():
 def data_prep_for_sql(data):
     n_data = []
     for key, value in data.items():
-        if key == "Dislikes":
-            print(f"Original dislikes value is: {value}")
-            if value is None or value == '':
-                n_data.append(0)
-            else:
-                n_data.append(value)
-        elif isinstance(value, list):
+        if isinstance(value, list):
             n_data.append(','.join(map(str, value)))
         elif key == 'Published_date' or key == 'Comment_posted_date':
             # Parse the date string from YouTube API
@@ -236,7 +230,7 @@ if selected == "Home":
     col1.markdown("#### :green[Domain] : Social Media")
     col1.markdown("#### :green[Technologies used] : Python,MongoDB, Youtube Data API, MySql, Streamlit")
     col1.markdown("#### :green[Overview] : Retrieving the Youtube channels data from the Google API, storing it in a MongoDB as data lake, migrating and transforming data into a SQL database,then querying the data and displaying it in the Streamlit app.")
-    col2.markdown("###### :blue[Github for the source code]: https://github.com/Manasshastra/Assignments-")
+    col2.markdown("###### :blue[Github for the source code]: https://github.com/Manasshastra/Assignments-/tree/475c4af1ff18b3395750d11c4dcad9695e07b8b9/Youtube%20Data%20Harvesting%20and%20Warehousing")
     col2.markdown("#   ")
     col2.markdown("#   ")
 
