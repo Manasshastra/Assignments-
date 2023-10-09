@@ -10,7 +10,7 @@ from datetime import datetime
 
 # #establishing local mongodb connection
 client = pymongo.MongoClient("mongodb://localhost:27017/")
-db = client["youtube_data"]
+db = client["youtube_database"]
 
 # CONNECTING WITH MYSQL DATABASE
 mydb = sql.connect(host="localhost",
@@ -20,8 +20,8 @@ mydb = sql.connect(host="localhost",
 mycursor = mydb.cursor(buffered=True)
 
 #Checking if database exists if not make 
-mycursor.execute("CREATE DATABASE IF NOT EXISTS youtube_db")
-mycursor.execute("USE youtube_db")
+mycursor.execute("CREATE DATABASE IF NOT EXISTS youtube_channel_db")
+mycursor.execute("USE youtube_channel_db")
 
 #Creating table for channel
 create_channels_table_query = """
@@ -114,7 +114,7 @@ def get_channel_videos(channel_id):
     while True:
         resp = youtube.playlistItems().list(playlistId=playlist_id, 
                                            part='snippet', 
-                                           maxResults=30,
+                                           maxResults=50,
                                            pageToken=next_page_token).execute()
         
         for i in range(len(resp['items'])):
@@ -163,7 +163,7 @@ def get_comments_details(v_id):
         while True:
             resp = youtube.commentThreads().list(part="snippet,replies",
                                                     videoId=v_id,
-                                                    maxResults=70,
+                                                    maxResults=100,
                                                     pageToken=next_page_token).execute()
             for cmt in resp['items']:
                 data = dict(Comment_id = cmt['id'],
@@ -192,7 +192,13 @@ def channel_names():
 def data_prep_for_sql(data):
     n_data = []
     for key, value in data.items():
-        if isinstance(value, list):
+        if key == "Dislikes":
+            print(f"Original dislikes value: {value}")
+            if value is None or value == '':
+                n_data.append(0)
+            else:
+                n_data.append(value)
+        elif isinstance(value, list):
             n_data.append(','.join(map(str, value)))
         elif key == 'Published_date' or key == 'Comment_posted_date':
             # Parse the date string from YouTube API
