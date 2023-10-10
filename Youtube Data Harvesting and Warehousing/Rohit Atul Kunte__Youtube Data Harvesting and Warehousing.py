@@ -51,6 +51,7 @@ create_videos_table_query = """
         duration VARCHAR(255),
         views INT,
         likes INT,
+        dislikes INT,
         comments INT,
         favorite_count INT,
         definition VARCHAR(255),
@@ -144,7 +145,7 @@ def get_video_details(v_ids):
                                 Duration = video['contentDetails']['duration'],
                                 Views = video['statistics']['viewCount'],
                                 Likes = video['statistics'].get('likeCount'),
-                               # Dislikes=video['statistics'].get('dislikeCount', 0),
+                                Dislikes=video['statistics'].get('dislikeCount', 0),
                                 Comments = video['statistics'].get('commentCount'),
                                 Favorite_count = video['statistics']['favoriteCount'],
                                 Definition = video['contentDetails']['definition'],
@@ -433,7 +434,7 @@ if selected == "Analytics":
         st.plotly_chart(fig,use_container_width=True)
 
     elif questions == '6.What is the total number of likes and dislikes for each video, and what are their corresponding video names?':
-        mycursor.execute("""SELECT title as Title, likes as Num_of_likes
+        mycursor.execute("""SELECT title as Title, likes as Num_of_likes, dislikes as Num_of_dislikes
                             FROM videos
                             ORDER BY likes DESC""")
         df = pd.DataFrame(mycursor.fetchall(),columns=mycursor.column_names)
