@@ -192,10 +192,10 @@ if selected == "Explore":
             st.markdown("## :green[Overall State Data - Amount of Transaction]")
             mycursor.execute(f"select state, sum(count) as Total_Transactions, sum(amount) as Total_amount from map_trans where year = {Year} and quarter = {Quarter} group by state order by state")
             df1 = pd.DataFrame(mycursor.fetchall(),columns= ['State', 'Total_Transactions', 'Total_amount'])
-            df2 = pd.read_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\nameofstates.csv")
+            df2 = pd.read_csv(r"https://github.com/Manasshastra/Assignments-/blob/main/Phonepe/Data/nameofstates.csv")
             df1.State = df2
 
-            fig = px.choropleth(df1,geojson="D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\statesofIndia.geojson.txt",
+            fig = px.choropleth(df1,geojson="https://github.com/Manasshastra/Assignments-/blob/main/Phonepe/Data/statesofIndia.geojson.txt",
                       featureidkey='properties.ST_NM',
                       locations='State',
                       color='Total_amount',
@@ -210,11 +210,11 @@ if selected == "Explore":
             st.markdown("## :green[Overall State Data - Count of Transaction]")
             mycursor.execute(f"select state, sum(count) as Total_Transactions, sum(amount) as Total_amount from map_trans where year = {Year} and quarter = {Quarter} group by state order by state")
             df1 = pd.DataFrame(mycursor.fetchall(),columns= ['State', 'Total_Transactions', 'Total_amount'])
-            df2 = pd.read_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\nameofstates.csv")
+            df2 = pd.read_csv(r"https://github.com/Manasshastra/Assignments-/blob/main/Phonepe/Data/nameofstates.csv")
             df1.Total_Transactions = df1.Total_Transactions.astype(float)
             df1.State = df2
 
-            fig = px.choropleth(df1,geojson="D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\statesofIndia.geojson.txt",
+            fig = px.choropleth(df1,geojson="https://github.com/Manasshastra/Assignments-/blob/main/Phonepe/Data/statesofIndia.geojson.txt",
                       featureidkey='properties.ST_NM',
                       locations='State',
                       color='Total_Transactions',
@@ -272,11 +272,11 @@ if selected == "Explore":
         st.markdown("## :violet[Overall State Data - User App opening frequency]")
         mycursor.execute(f"select state, sum(Registered_user) as Total_Users, sum(App_opens) as Total_Appopens from map_user where year = {Year} and quarter = {Quarter} group by state order by state")
         df1 = pd.DataFrame(mycursor.fetchall(), columns=['State', 'Total_Users','Total_Appopens'])
-        df2 = pd.read_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\nameofstates.csv")
+        df2 = pd.read_csv(r"https://github.com/Manasshastra/Assignments-/blob/main/Phonepe/Data/nameofstates.csv")
         df1.Total_Appopens = df1.Total_Appopens.astype(float)
         df1.State = df2
         
-        fig = px.choropleth(df1,geojson="D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\statesofIndia.geojson.txt",
+        fig = px.choropleth(df1,geojson="https://github.com/Manasshastra/Assignments-/blob/main/Phonepe/Data/statesofIndia.geojson.txt",
                   featureidkey='properties.ST_NM',
                   locations='State',
                   color='Total_Appopens',
