@@ -28,7 +28,7 @@ st.sidebar.header(":smiley: :violet[**Welcome to the dashboard!**]")
 
 # Creating option menu in the side bar
 with st.sidebar:
-    selected = option_menu("Menu", ["Home","Top Charts","Explore Data","About"], 
+    selected = option_menu("Menu", ["Home","Charts","Explore","About"], 
                 icons=["house","graph-up-arrow","bar-chart-line", "exclamation-circle"],
                 menu_icon= "menu-button-wide",
                 default_index=0,
@@ -39,7 +39,7 @@ with st.sidebar:
 # MENU 1 - HOME
 if selected == "Home":
     st.markdown("# :blue[Data Visualization and Exploration]")
-    st.markdown("## :blue[A User-Friendly Tool Using Streamlit and Plotly]")
+    st.markdown("## :blue[A User-Friendly Tool Built Using Streamlit and Plotly]")
     col1,col2 = st.columns([3,2],gap="medium")
     with col1:
         st.write(" ")
@@ -49,9 +49,9 @@ if selected == "Home":
         st.markdown("### :violet[Overview :] In this streamlit app you can visualize the phonepe pulse data and gain lot of insights on transactions, number of users, top 10 states, districts, pincode and so on using bar charts, pie charts and geo map visualizations.")
     
 
-# MENU 2 - TOP CHARTS
-if selected == "Top Charts":
-    st.markdown("## :blue[Top Charts]")
+# MENU 2 - CHARTS
+if selected == "Charts":
+    st.markdown("## :blue[Charts]")
     Type = st.sidebar.selectbox("**Type**", ("Transactions", "Users"))
     c1,c2= st.columns([1,1.5],gap="large")
     with c1:
@@ -122,8 +122,8 @@ if selected == "Top Charts":
         
         with col1:
             st.markdown("### :blue[Brands]")
-            if Year == 2022 and Quarter in [2,3,4]:
-                st.markdown("#### Sorry No Data to Display for 2022 Qtr 2,3,4")
+            if Year == 2023 and Quarter in [4]:
+                st.markdown("#### Sorry No Data to Display for 2023 Qtr 4")
             else:
                 mycursor.execute(f"select brands, sum(count) as Total_Count, avg(percentage)*100 as Avg_Percentage from agg_user where year = {Year} and quarter = {Quarter} group by brands order by Total_Count desc limit 10")
                 df = pd.DataFrame(mycursor.fetchall(), columns=['Brand', 'Total_Users','Avg_Percentage'])
@@ -177,8 +177,8 @@ if selected == "Top Charts":
             fig.update_traces(textposition='inside', textinfo='percent+label')
             st.plotly_chart(fig,use_container_width=True)
             
-# MENU 3 - EXPLORE DATA
-if selected == "Explore Data":
+# MENU 3 - EXPLORE 
+if selected == "Explore":
     Year = st.sidebar.slider("**Year**", min_value=2018, max_value=2023)
     Quarter = st.sidebar.slider("Quarter", min_value=1, max_value=4)
     Type = st.sidebar.selectbox("**Type**", ("Transactions", "Users"))
@@ -189,7 +189,7 @@ if selected == "Explore Data":
         
         # Overall State Data - TRANSACTIONS AMOUNT - INDIA MAP 
         with col1:
-            st.markdown("## :green[Overall State Data - Transactions Amount]")
+            st.markdown("## :green[Overall State Data - Amount of Transaction]")
             mycursor.execute(f"select state, sum(count) as Total_Transactions, sum(amount) as Total_amount from map_trans where year = {Year} and quarter = {Quarter} group by state order by state")
             df1 = pd.DataFrame(mycursor.fetchall(),columns= ['State', 'Total_Transactions', 'Total_amount'])
             df2 = pd.read_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\nameofstates.csv")
@@ -207,7 +207,7 @@ if selected == "Explore Data":
         # Overall State Data - TRANSACTIONS COUNT - INDIA MAP
         with col2:
             
-            st.markdown("## :green[Overall State Data - Transactions Count]")
+            st.markdown("## :green[Overall State Data - Count of Transaction]")
             mycursor.execute(f"select state, sum(count) as Total_Transactions, sum(amount) as Total_amount from map_trans where year = {Year} and quarter = {Quarter} group by state order by state")
             df1 = pd.DataFrame(mycursor.fetchall(),columns= ['State', 'Total_Transactions', 'Total_amount'])
             df2 = pd.read_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\nameofstates.csv")
