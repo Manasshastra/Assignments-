@@ -210,12 +210,12 @@ for state in top_user:
 df_top_user = pd.DataFrame(c6)         
 
 
-df_agg_trans.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\agg_trans.csv",index=False)
-df_agg_user.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\agg_user.csv",index=False)
-df_map_trans.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\map_trans.csv",index=False)
-df_map_user.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\map_user.csv",index=False)
-df_top_trans.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\top_trans.csv",index=False)
-df_top_user.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\top_user.csv",index=False)
+df_agg_trans.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\agg_trans.csv",index=False)
+df_agg_user.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\agg_user.csv",index=False)
+df_map_trans.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\map_trans.csv",index=False)
+df_map_user.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\map_user.csv",index=False)
+df_top_trans.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\top_trans.csv",index=False)
+df_top_user.to_csv(r"D:\Coding\Guvi-Assignments\Assignments-\Phonepe\Data\top_user.csv",index=False)
 
 
 # CONNECTING WITH MYSQL DATABASE
